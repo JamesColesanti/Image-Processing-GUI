@@ -123,31 +123,6 @@ public class Image implements ImageInterface {
         copyOfThis.redChannel.get(x).set(y, newRed);
         copyOfThis.greenChannel.get(x).set(y, newGreen);
         copyOfThis.blueChannel.get(x).set(y, newBlue);
-        /*
-        try {
-          List<Integer> newVals = filter.newColorValsAt(x, y, originalImg);
-
-          newRed = clamp(newVals.get(0));
-          newGreen = clamp(newVals.get(1));
-          newBlue = clamp(newVals.get(2));
-          copyOfThis.redChannel.get(x).set(y, newRed);
-          copyOfThis.greenChannel.get(x).set(y, newGreen);
-          copyOfThis.blueChannel.get(x).set(y, newBlue);
-        } catch (IllegalArgumentException ex) {
-          if ((x < copyOfThis.redChannel.size()) && copyOfThis.redChannel.get(x).size() == 0) {
-            copyOfThis.redChannel.remove(x);
-            copyOfThis.greenChannel.remove(x);
-            copyOfThis.blueChannel.remove(x);
-            x--;
-          } else if (x < copyOfThis.redChannel.size() && y < copyOfThis.redChannel.get(x).size()){
-            copyOfThis.redChannel.get(x).remove(y);
-            copyOfThis.greenChannel.get(x).remove(y);
-            copyOfThis.blueChannel.get(x).remove(y);
-            y--;
-          }
-        }
-
-         */
       }
     }
 
