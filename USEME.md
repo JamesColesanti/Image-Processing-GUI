@@ -1,6 +1,12 @@
-Commands for our implementation:
+IMAGE PROCESSING APP USAGE INSTRUCTIONS
+---------------------------------------
 
-How To Use The GUI
+* GUI instructions
+* CLI instruction 
+
+GUI INSTRUCTIONS
+----------------
+
 - When opened one needs to go to the "Layer Action" and click "Create"; this creates a layer
 - Go to "Load Actions" where the use can then select...
   -- "Load" and then navigate to the file we want to load
@@ -37,6 +43,9 @@ we click the "Save actions" menu and we can then click...
  we want to export with
 -- "Save all" and then navigate to the folder where we want to export all the files to, or create
 a new folder where we want to export all of the files to
+
+CLI INSTRUCTIONS
+----------------
 
 - q or Q: quit
    - Example: "q", "Q"
