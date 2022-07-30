@@ -2,7 +2,7 @@ IMAGE PROCESSING APP USAGE INSTRUCTIONS
 ---------------------------------------
 
 * GUI instructions
-* CLI instruction 
+* CLI instructions 
 
 GUI INSTRUCTIONS
 ----------------
