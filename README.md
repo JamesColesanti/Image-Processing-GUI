@@ -3,6 +3,7 @@ IMAGE PROCESSING APP
 
 * About
 * Overview of design
+* List of features
 * How to run
 * Usage instructions
 * Example script explanation
@@ -116,42 +117,42 @@ implementations of IFilterView
   about a layer at the time it is contructed.
 
 * ImageInterface:
- - The purpose of this interface is to define the methods a proper image implementation should have.
- - This interface includes methods for creating images, facilitating the filtering of images,
+  - The purpose of this interface is to define the methods a proper image implementation should have.
+  - This interface includes methods for creating images, facilitating the filtering of images,
    importing images, and exporting images.
 
 * Image:
- - This is our implementation of ImageInterface.
- - We chose to represent images as objects with three ArrayList fields,
+  - This is our implementation of ImageInterface.
+  - We chose to represent images as objects with three ArrayList fields,
    one that holds integer values for each color. The color values for any pixel in an image can be
    found by getting the value at that pixels "x" and "y" coordinates. The "x" would be the
    index in the outer list, while the "y" would be the index in the inner list.
 
 * IFileType:
- - The purpose of this interface is to define methods that representations of file types must have
+  - The purpose of this interface is to define methods that representations of file types must have
    in order for the application to support importing and exporting.
- - The way in which this importing and exporting is done is left up to the specific implementation.
+  - The way in which this importing and exporting is done is left up to the specific implementation.
 
 * AbstractComplexFileType:
   - Abstracts the process of importing and exporting a file for JPEG and PNG file types
 and any future abstract-able file types that we wish to include in our image editing
 
 * PPM:
- - This is the implementation of the IFileType that allows for importing PPM files and exporting
+  - This is the implementation of the IFileType that allows for importing PPM files and exporting
    images as PPM files.
- - The methods in this class are where the action of importing and exporting PPM files
+  - The methods in this class are where the action of importing and exporting PPM files
    actually takes place.
 
 * JPEG:
- - This is the implementation of the IFileType that allows for importing JPEG files and exporting
+  - This is the implementation of the IFileType that allows for importing JPEG files and exporting
    images as JPEG files.
- - The methods in this class are where the action of importing and exporting JPEG files
+  - The methods in this class are where the action of importing and exporting JPEG files
    actually takes place.
 
 * PNG:
- - This is the implementation of the IFileType that allows for importing PNG files and exporting
+  - This is the implementation of the IFileType that allows for importing PNG files and exporting
    images as PNG files.
- - The methods in this class are where the action of importing and exporting PNG files
+  - The methods in this class are where the action of importing and exporting PNG files
    actually takes place.
 
 * IEffect:
@@ -273,14 +274,14 @@ average pixel values create the blotch looking groups in mosaic images
   - As new images are needed, new enumerations can be added to the ProgrammaticImageType enum to
    support them.
 
-ColorEnum:
+* ColorEnum:
   - The purpose of this enum is to define the types of colors that can be used to create images
    programmatically.
   - Each color enumeration has three integer fields representing that color's red, green, and blue
    values.
 
-2. List of Features:
-
+LIST OF FEATURES
+-----------------
 Below is a list of features that are fully functional in our program and exposed to the user through
 the GUI:
 - creating layers
