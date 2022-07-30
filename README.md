@@ -1,56 +1,44 @@
 IMAGE PROCESSING APP
 --------------------
 
-* Description
+* About
+* Overview of design
 * Usage instructions
 
-DESCRIPTION
------------
-
-This project was made as part of my Object-Oriented Design class. It is an image processing app that allows
-users to apply filters or effects to their pictures. Currently, the app supports monochrome and sepia
-filters. It also supports several effects, such as blurring, sharpening, mosaicking, and downscaling.
-We built the app with the intention that more effects will be added in the future. As a result, it is
-possible to implement new filters and effects by implementing the respective interface with the desired
-logic.
-
-USAGE INSTRUCTIONS
-------------------
-
-1. About/Overview of Design
-
-About:
+ABOUT
+------
 
 Our program aims to create an image-processing application that can be used to apply different
 filters and effects to multiple layers of images. The program can hold one or more layers of images,
 and the user is able to switch between the layers to see the results of applying different effects.
 
-Overview of Design:
+OVERVIEW OF DESIGN 
+-------------------
 
-Runner class:
+* Runner class:
 - This class holds the main method to run the program.
 - Three types of commands are supported as of 6/27/21:
   - "script" - opens a given script, runs it, closes program
   - "text" - allows for interactive scripting within terminal
   - "interactive" - opens GUI and allows for interactions within it
 
-IFilterModelState:
+* IFilterModelState:
 - The purpose of this interface is to define methods useful for observing information within a
   model.
 - This interface is used in the view to prevent the possibility of the view mutating the model.
 
-IFilterModel:
+* IFilterModel:
 - The purpose of this interface is to define the methods a proper model for the image processing
    app should have.
 - This interface is parameterized over the type of image representation the client chooses.
 
-IComplexEffectModel:
+* IComplexEffectModel:
 - The purpose of this interface is to add new functionality to the existing IFilterModel interface
 of accepting and applying effects without modifying the existing IFilterModel interface
 - We do this to minimize modification to the old interface and instead we extend the old interface
 and add the new functionality in IComplexEffectModel
 
-FilterModel:
+* FilterModel:
  - This is our implementation of the IFilterModel interface.
  - This implementation is parameterized over the ImageInterface we have defined.
  - We chose to use a stack to keep track of image history.
@@ -58,169 +46,169 @@ FilterModel:
    outside the class.
  - Similarly, the model
 
-MockModel:
+* MockModel:
 - The mock model is used for testing so we can see if the controller is sending the model
 the correct data when methods and actions are called
 - The mock implements IFilterModel so it can be plugged in in the controller
 
-IFilterController:
+* IFilterController:
 - This purpose of this interface is to define methods for running the program and methods which deal
 with user input then deciding exactly what to do with the user input and which methods in the model
 to call when and how to use them.
 - This interface is parameterized over the type of image representation the client chooses.
 
-FilterController:
+* FilterController:
 - This is our implementation of IFilterController interface.
 - The class has a model and view field since it is a scanner and delegates to the model and the view
  when so applicable, and the controller also has a scanner field so no matter what method we choose
  to call we can refer to the scanner and the scanner does not get out of sync.
  - The controller runs and executes the program
 
-ControllerUtil:
+* ControllerUtil:
  - Houses utility methods for the controller to import one or multiple images and
  export a single file or export all of the files in the multi layered image
  - The util class is used since we deemed these methods universal for all controller implementations
  - These methods are in the Controller of MVC since they deal with IO
 
-GUIController:
+* GUIController:
 - The GUIController is the controller for the program and the ActionListener
 - The GUIController uses command line design to delegate to helpers and other method
 calls when the indicated ActionListener is passed
 - The GUIController delegates to the model for functionality and the view for displaying
 
-IFilterView:
+* IFilterView:
 - The purpose of this interface is to define methods for displaying information. This interface was
   designed to be a simple textual representation of the current state of the model.
 - Defines a single method for rendering messages to the user.
 
-IGUIFunctionality:
+* IGUIFunctionality:
 - The purpose of this interface is to add new functionality specific to GUI view implementations
 to the existing IFilterView interface without modifying the old interface by extending IFilterView
 - This allows us to add GUI specific view methods without disrupting non gui existing or new
 implementations of IFilterView
 
-SimpleFilterView:
+* SimpleFilterView:
 - This is our implementation of the IFilterView interface
 - This class has a constructor that takes in an Appendable and implements renderMessage so that the
   given message is added to this Appendable.
 
-GUIView:
+* GUIView:
 - This is our implementation of the IGUIFunctionality interface.
 - When constructed, the GUIView shows the information in the model in the form of a graphical user
   interface.
 - The GUIView is coupled to the model and changes as the model changes.
 - Interactions in the GUIView are sent to the GUIController to determine if the model should change.
 
-ILayer:
+* ILayer:
 - The purpose of this interface is to define methods useful for working with layers.
 - Many of these methods are useful for observing information within a layer which is a necessary
   part of importing and exporting.
 
-Layer:
+* Layer:
 - This is our implementation of the ILayer interface.
 - This implementation gives layers three fields: an image, a name, and a visibility.
 - It contains several constructors. Each one is used depending on the amount of information known
   about a layer at the time it is contructed.
 
-ImageInterface:
+* ImageInterface:
  - The purpose of this interface is to define the methods a proper image implementation should have.
  - This interface includes methods for creating images, facilitating the filtering of images,
    importing images, and exporting images.
 
-Image:
+* Image:
  - This is our implementation of ImageInterface.
  - We chose to represent images as objects with three ArrayList fields,
    one that holds integer values for each color. The color values for any pixel in an image can be
    found by getting the value at that pixels "x" and "y" coordinates. The "x" would be the
    index in the outer list, while the "y" would be the index in the inner list.
 
-IFileType:
+* IFileType:
  - The purpose of this interface is to define methods that representations of file types must have
    in order for the application to support importing and exporting.
  - The way in which this importing and exporting is done is left up to the specific implementation.
 
-AbstractComplexFileType:
+* AbstractComplexFileType:
 - Abstracts the process of importing and exporting a file for JPEG and PNG file types
 and any future abstract-able file types that we wish to include in our image editing
 
-PPM:
+* PPM:
  - This is the implementation of the IFileType that allows for importing PPM files and exporting
    images as PPM files.
  - The methods in this class are where the action of importing and exporting PPM files
    actually takes place.
 
-JPEG:
+* JPEG:
  - This is the implementation of the IFileType that allows for importing JPEG files and exporting
    images as JPEG files.
  - The methods in this class are where the action of importing and exporting JPEG files
    actually takes place.
 
-PNG:
+* PNG:
  - This is the implementation of the IFileType that allows for importing PNG files and exporting
    images as PNG files.
  - The methods in this class are where the action of importing and exporting PNG files
    actually takes place.
 
-IEffect:
+* IEffect:
 - The purpose of this interface is to define a method to apply a dimensional
  image modification action
 - This new interface is for lossy image modification functionality where producing values for pixels
 pixel-by-pixel does not work since some pixels may no longer exist so instead we return the
 new ImageInterface in its entirety
 
-AbstractApplyAllStatus:
+* AbstractApplyAllStatus:
 - Has a method that returns true if the effect which extends AbstractApplyAllStatus should be called
 - This abstract class implements IEffect so we can raise any common functionality amongst effects
 to the abstract class in the future
 
-Downscale:
+* Downscale:
 - This class extends the AbstractApplyAllStatus class to suport returning the boolean representing
 whether the method should be applied to all layers which in this case with downscale is true
 - Downscale shrinks an image to the specified new height and width, we lose some of the image data
 in this process and Downscale performs all of the arithmetic and image pixel truncation to return
  the new image
 
-IMosaic:
+* IMosaic:
 - Extends the old IFilter interface by not changing the old implementation but adding new
  functionality via extension and then adding the new method to initialize seeds
  - the Mosaic class implements IMosaic so Mosaic still "is-a" filter but has the necessary
  added functionality of the initializeSeed method which allows us to "prime" the Mosaic class for
  filtering
 
-Mosaic:
+* Mosaic:
 - This class represents the mosaic filter on an image which generates a user defined
 number of seeds and all of the pixels closet to said seed are then averaged and all assigned said
 average value to create blotches of color and make the image look like a mosaic image
 
-IPosn:
+* IPosn:
 - The purpose of the interface is to define the methods for the Posn class and if we were to
 later on decide on a different implementation of Posn then we would simply create a new
 implementing class of IPosn
 
-Posn:
+* Posn:
 - This class represents a pixel location in the image that we are mosaic-ing and associates
 the x y pixel position with the seed that closest to it
 
-ISeed:
+* ISeed:
 - The purpose of the interface is to define the methods for the seed class and if we were to
 later on decide on a different implementation of seed then we would simply create a new
 implementing class of ISeed
 
-Seed:
+* Seed:
 - Represents a randomly generated point in a mosaic image which will then form the cluster that
 we find the average pixel value of and then set all of the pixels closest to the seed with the
 average pixel values create the blotch looking groups in mosaic images
 
-SeedComparator:
+* SeedComparator:
 - Compares if this seed comes before that seed based off of the cartesian coordinates in
  the each seed respectively
 
-IFilter:
+* IFilter:
  - The purpose of this interface is to define a method needed to properly filter an image.
  - This method is used to find the new red, green, and blue values at an particular pixel.
  - The way in which these new values are found is left up to the implementation of the interface.
 
-AbstractColorFilter:
+* AbstractColorFilter:
  - This class is used to abstract most of the implementation for applying color filters (monochrome
    and sepia as of 6/11/21).
  - Since the actual code for these implementations is identical, it can be placed in this abstract
@@ -228,17 +216,17 @@ AbstractColorFilter:
    defines as abstract method meant to get the transpose matrix that is to be used for the
    filtering.
 
-Monochrome:
+* Monochrome:
  - This class extends the AbstractColorFilter class to support applying a monochrome filter to an
    image.
  - It is implemented so that a monochrome transpose matrix is used in the filtering process.
 
-Sepia:
+* Sepia:
  - This class extends the AbstractColorFilter class to support applying a sepia filter to an
    image.
  - It is implemented so that a sepia transpose matrix is used in the filtering process.
 
-AbstractSquareMatrixMath:
+* AbstractSquareMatrixMath:
  - This class is used to abstract most of the implementation for applying non-color filters (blur
    and sharpen as of 6/11/21).
  - The actual code for applying these filters is nearly identical, which is why it can be placed in
@@ -247,33 +235,33 @@ AbstractSquareMatrixMath:
  - These extending classes will be able to properly set up the transpose matrix for their respective
    filter so that the filter can be applied at any point in the image.
 
-Blur:
+* Blur:
  - This class extends the AbstractSquareMath class to support blurring an image.
  - The class defines the 3x3 Gaussian blur matrix that is to be applied to the image through code in
    the abstract class.
  - Since this matrix is specific to this implementation of blurring, it must be set up in this
    class.
 
-Sharpen:
+* Sharpen:
  - This class extends the AbstractSquareMath class to support sharpening an image.
  - The class defines the 5x5 sharpening matrix that is to be applied to the image through code in
    the abstract class.
  - Since this matrix is specific to this implementation of sharpening,
    it must be set up in this class.
 
-ImageCreatorInterface:
+* ImageCreatorInterface:
  - The purpose of this interface is to define a method that is needed to create a data
    representation for a programmatically created image.
  - Implementing classes must decide how to create this representation based on the image they want
    to create.
 
-CheckerBoard:
+* CheckerBoard:
  - This class implements the ImageCreatorInterface to support the creation of a data representation
    for a checkerboard image.
  - It uses the gives width, height, tileSize, and colors in a nested for loop that creates a
    checkerboard pattern.
 
-ProgrammaticImageCreator:
+* ProgrammaticImageCreator:
  - This is a factory class meant to create ImageCreatorInterface objects.
  - The class defines a public enum ProgrammaticImageType that contains enumerations for the types of
    images that can currently be created programmatically by the model.
