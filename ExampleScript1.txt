@@ -1,0 +1,37 @@
+  create
+  create
+  create
+  current 3
+  load ExtraCreditDeliverables/ExtraCredit1DownscaleDeliverables/bostonSkylineOriginal970x450.jpg
+  sepia
+  sepia
+  sharpen
+  save bostonSkylineSepiaSharpen.jpg
+  invisible 3
+  current 2
+  load ExtraCreditDeliverables/ExtraCredit1DownscaleDeliverables/bostonSkylineOriginal970x450.jpg
+  monochrome
+  monochrome
+  sharpen
+  sharpen
+  sharpen
+  save bostonSkylineMonochromeSharpen.jpg
+  invisible 2
+  current 1
+  load ExtraCreditDeliverables/ExtraCredit1DownscaleDeliverables/bostonSkylineOriginal970x450.jpg
+  save bostonSkylineSame.jpg
+  export-all
+  testScript1Folder1
+  import-all
+  testScript1Folder1
+  create
+  current 4
+  visible 4
+  load ExtraCreditDeliverables/ExtraCredit1DownscaleDeliverables/bostonSkylineOriginal970x450.jpg
+  mosaic 1000
+  save bostonSkylineMosaic.png
+  load ExtraCreditDeliverables/ExtraCredit1DownscaleDeliverables/bostonSkylineOriginal970x450.jpg
+  downscale 400 400
+  save bostonSkylineDownscale.png
+  export-all
+  testScript1Folder2
