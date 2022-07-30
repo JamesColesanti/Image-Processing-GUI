@@ -399,9 +399,4 @@ IMAGE CITATIONS
 ---------------
 
 * Boston skyline image
-  - https://www.bing.com/images/search?view=detailV2&ccid=pxvxZVCQ&id=7C5B050616C91EA6B3BD02DC1CD6939
-C52BFE17D&thid=OIP.pxvxZVCQiZt54vKrtv-R5QHaEo&mediaurl=https%3A%2F%2Fwallpapercave.com%2Fwp%2FfnrG
-4q2.jpg&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FRa71bf1655090899b79e2f2abb6ff91e5%3Frik%3DfeG
-%252fUpyT1hzcAg%26pid%3DImgRaw&exph=1200&expw=1920&q=boston+skyline&simid=608019106957966355&ck=8A
-E2E1DC196013F166669D3EAC6ED268&selectedindex=50&form=IRPRST&ajaxhist=0&ajaxserp=0&vt=0&sim=11
   - https://www.incimages.com/uploaded_files/image/970x450/getty_471698707_243671.jpg
