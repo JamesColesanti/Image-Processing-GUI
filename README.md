@@ -385,7 +385,8 @@ LATEST DESIGN CHANGES
     - Mosaic feature was able to be added using existing IFilter interface. A Mosaic class was made that
   implements this interface. Objects of the class could then be passed into the existing applyFilter
   method in the model. No design changes were required to implement this feature.
-  - Examples of the above effects can be seen in the images uploaded to the repository
+  
+  - Examples of the above effects can be seen in the res folder.
 
 * Controller
   - Additional GUIController made to handle interactions in the GUI. This controller creates a GUIView
